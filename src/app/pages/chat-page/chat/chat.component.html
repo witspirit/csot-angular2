@@ -1,3 +1,4 @@
 <div class="chat-view-container">
+  <chat-bubble-list [messages]="chatStore.messages$ | async" [myUserId]="chatStore.userId$ | async"></chat-bubble-list>
   <text-input (messageEntered)="deliverMessage($event)"></text-input>
 </div>
