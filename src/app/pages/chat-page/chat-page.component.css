@@ -1,0 +1,16 @@
+md-toolbar {
+  min-height: 30vh;
+  background-color: #00BCD4;
+}
+
+md-card {
+  width: 80vw;
+  height: 70vh;
+  padding: 0;
+}
+
+.chat-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -10vh;
+}

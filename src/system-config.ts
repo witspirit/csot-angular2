@@ -7,11 +7,28 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material',
+  'socket.io-client' : 'vendor/socket.io-client'
 };
 
 /** User packages configuration. */
 const packages: any = {
 };
+
+// Material components
+const materialPkgs:string[] = [
+  'core',
+  'button',
+  'card',
+  'toolbar',
+  'list',
+  'input'
+];
+
+materialPkgs.forEach((pkg) => {
+  packages[`@angular2-material/${pkg}`] = {main: `${pkg}.js`};
+
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -30,16 +47,24 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'socket.io-client',
 
   // App specific barrels.
   'app',
   'app/shared',
+  'app/pages/chat-page',
+  'app/pages/chat-page/chat',
+  'app/pages/chat-page/chat/text-input',
   /** @cli-barrel */
 ];
 
 const cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
-  cliSystemConfigPackages[barrelName] = { main: 'index' };
+  if(barrelName == 'socket.io-client') {
+    cliSystemConfigPackages[barrelName] = { main: 'socket.io.js' }
+  } else {
+    cliSystemConfigPackages[barrelName] = { main: 'index' };
+  }
 });
 
 /** Type declaration for ambient System. */
@@ -50,6 +75,7 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
+    'socket.io-client': 'vendor/socket.io-client',
     'main': 'main.js'
   },
   packages: cliSystemConfigPackages
