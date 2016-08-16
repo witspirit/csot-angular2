@@ -57,6 +57,8 @@ const barrels: string[] = [
   'app/pages/chat-page/chat/text-input',
   'app/pages/chat-page/chat/chat-bubble-list',
   'app/pages/chat-page/chat/chat-bubble-list/chat-bubble',
+  'app/pages/chat-page/chat-heads-list',
+  'app/pages/chat-page/chat-heads-list/channel',
   /** @cli-barrel */
 ];
 

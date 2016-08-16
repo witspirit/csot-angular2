@@ -1,0 +1,4 @@
+<div class="chat-heads-list-container">
+  <channel [channel]="channel" *ngFor="let channel of chatStore.channels$ | async"></channel>
+</div>
+
